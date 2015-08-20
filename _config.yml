@@ -1,6 +1,7 @@
 # Site settings
 title: FF14 Links and Stuff
 email: ff14@uberfuzzy.com
+description: A simple link hub and utility host
 baseurl: "" # the subpath of your site, e.g. /blog/
 url: "http://ff14.uberfuzzy.com" # the base hostname & protocol for your site
 twitter_username: uberfuzzy
