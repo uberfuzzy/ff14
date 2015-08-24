@@ -1,23 +1,37 @@
 ---
 layout: default
 ---
-
+<span id="top"></span>
 <div class="home">
+
+{% for tag in site.tags %}
+  {% assign t = tag | first %}
+  <a class="btn btn-default" href="#{{ t }}" role="button">{{ t }}</a>
+{% endfor %}<br>
+<br>
 
 {% for tag in site.tags %}
   {% assign t = tag | first %}
   {% assign posts = tag | last %}
 
-{{ t | downcase }}
-<ul>
+<div class="panel panel-default" id="{{ t }}">
+  <div class="panel-heading">
+    <a href="#top"><span class="badge pull-right">top</span></a>
+    <h3 class="panel-title">{{ t | downcase }}</h3>
+  </div>
+  <div class="panel-body">
+    <ul>
 {% for post in posts %}
   {% if post.tags contains t %}
-  <li>
-    <a href="{{ post.link }}">{{ post.title }}</a>
-  </li>
+      <li>
+        <a href="{{ post.link }}">{{ post.title }}</a>
+      </li>
   {% endif %}
 {% endfor %}
-</ul>
+    </ul>
+  </div>
+</div>
 {% endfor %}
+
 
 </div>
