@@ -4,8 +4,14 @@ layout: default
 <span id="top"></span>
 <div class="home">
 
-{% for tag in site.tags | sort %}
-  {% assign t = tag | first %}
+{% assign justTags = '' | split: '' %}
+{% for tagclump in site.tags %}
+{% assign tag = tagclump | first %}
+{% justTags | push: tag %}
+{% endfor %}
+
+{% assign stags = justTags | sort %}
+{% for t in stags %}
   <a class="btn btn-default" href="#{{ t }}" role="button">{{ t }}</a>
 {% endfor %}<br>
 <br>
