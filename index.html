@@ -7,7 +7,7 @@ layout: default
 {% assign justTags = '' | split: '' %}
 {% for tagclump in site.tags %}
 {% assign tag = tagclump | first %}
-{% justTags | push: tag %}
+{% assign justTags = justTags | push: tag %}
 {% endfor %}
 
 {% assign stags = justTags | sort %}
