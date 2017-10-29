@@ -11,10 +11,10 @@ layout: default
 {%- endfor -%}
 
 {%- assign stags = justTags | sort -%}
-{%- for t in stags -%}
+{% for t in stags %}
 {%- assign c = site.tags[t].size -%}
   <a class="btn btn-default" href="#{{ t }}" role="button">{{ t }} ({{ c }})</a>
-{%- endfor -%}<br>
+{% endfor -%}<br>
 <br>
 
 {%- for tag in site.tags -%}
@@ -28,12 +28,8 @@ layout: default
   </div>
   <div class="panel-body">
     <ul>
-{%- for post in posts -%}
-  {%- if post.tags contains t -%}
-      <li>
-        <a href="{{ post.link }}">{{ post.title }}</a><!-- {{ posts.tags }} -->
-      </li>
-  {%- endif -%}
+{% for post in posts %}
+      <li><a href="{{ post.link }}">{{ post.title }}</a></li>
 {%- endfor -%}
     </ul>
   </div>
