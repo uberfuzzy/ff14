@@ -12,7 +12,8 @@ layout: default
 
 {% assign stags = justTags | sort %}
 {% for t in stags %}
-  <a class="btn btn-default" href="#{{ t }}" role="button">{{ t }}</a>
+{% assign c = site.tags[t].size %}
+  <a class="btn btn-default" href="#{{ t }}" role="button">{{ t }} ({{ c }})</a>
 {% endfor %}<br>
 <br>
 
