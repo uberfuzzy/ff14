@@ -13,3 +13,5 @@ exclude:
   - README.md
   - LICENSE
   - CNAME
+  - .jekyll-metadata
+  
