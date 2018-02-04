@@ -1,0 +1,9 @@
+{% capture trashcan %}
+{% assign catClumps = site.links | map:'categories' %}
+{% assign allCats = '' | split:'' %}
+{% for clump in catClumps %}
+{% for x in clump %}
+{% assign allCats = allCats | push: x | uniq | sort %}
+{% endfor %}
+{% endfor %}
+{% endcapture %}

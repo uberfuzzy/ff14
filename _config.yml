@@ -6,6 +6,8 @@ baseurl: "" # the subpath of your site, e.g. /blog/
 url: "http://ff14.uberfuzzy.com" # the base hostname & protocol for your site
 twitter_username: uberfuzzy
 github_username:  uberfuzzy
+collections:
+  - links
 
 # Build settings
 markdown: kramdown
@@ -14,4 +16,3 @@ exclude:
   - LICENSE
   - CNAME
   - .jekyll-metadata
-  
