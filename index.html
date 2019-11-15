@@ -13,7 +13,7 @@ layout: default
 {%- assign stags = justTags | sort -%}
 {% for t in stags %}
 {%- assign c = site.tags[t].size -%}
-  <a class="btn btn-outline-secondary" href="#{{ t }}" role="button">{{ t }} <span class="badge badge-pill badge-info">{{ c }}</span></a>
+  <a class="btn btn-outline-secondary mb-1" href="#{{ t }}" role="button">{{ t }} <span class="badge badge-pill badge-info">{{ c }}</span></a>
 {% endfor -%}<br>
 <br>
 
@@ -21,9 +21,9 @@ layout: default
   {%- assign t = tag | first -%}
   {%- assign posts = tag | last -%}
 
-<div class="card" id="{{ t }}">
-  <div class="card-header">
-    <a href="#top" class="badge badge-pill badge-secondary float-right">top</a>
+<div class="card mb-2" id="{{ t }}">
+  <div class="card-header bg-secondary text-white">
+    <a href="#top" class="badge badge-pill badge-dark float-right">top</a>
     <h4 class="mb-0">{{ t | downcase }}</h4>
   </div>
   <div class="card-body">
