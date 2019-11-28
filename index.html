@@ -20,7 +20,7 @@ layout: default
 {%- for jt in justTags -%}
 {%- assign tag_posts = site.links -%}
 {%- capture asdf %}link.tags contains '{{ jt }}'{% endcapture %}
-{%- assign tagged_with = site.links | where_exp: "link", asdf %}
+{%- assign tagged_with = site.links | where_exp: "link", asdf | sort: 'title' %}
 <div class="card mb-2" id="{{ jt }}">
   <div class="card-header bg-secondary text-white">
     <a href="#top" class="badge badge-pill badge-dark float-right text-white">top</a>
