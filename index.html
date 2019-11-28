@@ -3,35 +3,37 @@ layout: default
 ---
 <span id="top"></span>
 <div class="home">
-
 {%- assign justTags = '' | split: '' -%}
-{%- for tagclump in site.tags -%}
-{%- assign tag = tagclump | first -%}
-{%- assign justTags = justTags | push: tag -%}
+{%- for floop in site.links -%}
+{%- assign justTags = justTags | concat: floop["tags"] %}
 {%- endfor -%}
-
-{%- assign stags = justTags | sort -%}
-{% for t in stags %}
-{%- assign c = site.tags[t].size -%}
-  <a class="btn btn-outline-secondary mb-1" href="#{{ t }}" role="button">{{ t }} <span class="badge badge-pill badge-info">{{ c }}</span></a>
+{%- assign justTags = justTags | sort | uniq %}
+<div class="top_boxes">
+{%- for jt in justTags %}
+{%- capture asdf %}link.tags contains '{{ jt }}'{% endcapture %}
+{%- assign tagged_with = site.links | where_exp: "link", asdf %}
+{%- assign c = tagged_with.size -%}
+<a class="btn btn-outline-secondary mb-1" href="#{{ jt }}" role="button">{{ jt }} <span class="badge badge-pill badge-info">{{ c }}</span></a>
 {% endfor -%}<br>
-<br>
+</div><br>
 
-{%- for stag in stags -%}
-{%- assign tag_posts = site.tags[stag] -%}
-<div class="card mb-2" id="{{ stag }}">
+{%- for jt in justTags -%}
+{%- assign tag_posts = site.links -%}
+{%- capture asdf %}link.tags contains '{{ jt }}'{% endcapture %}
+{%- assign tagged_with = site.links | where_exp: "link", asdf %}
+<div class="card mb-2" id="{{ jt }}">
   <div class="card-header bg-secondary text-white">
     <a href="#top" class="badge badge-pill badge-dark float-right text-white">top</a>
-    <h4 class="mb-0">{{ stag | downcase }}</h4>
+    <h4 class="mb-0">{{ jt | downcase }}</h4>
   </div>
   <div class="card-body">
-    <ul class="mb-0">
-{% for post in tag_posts %}
+    <ul class="mb-0 card-links">
+{%- for post in tagged_with %}
       <li><a href="{{ post.link }}">{{ post.title }}</a></li>
-{%- endfor -%}
+{%- endfor %}
     </ul>
   </div>
-</div>
-{%- endfor -%}
+</div><!-- /card div -->
+{%- endfor %}
 
-</div>
+</div><!-- /home div -->
