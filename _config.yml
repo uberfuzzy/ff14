@@ -14,7 +14,9 @@ exclude:
   - LICENSE
   - CNAME
   - .jekyll-metadata
-  
+  - Gemfile
+  - Gemfile.lock
+
 collections_dir: collections
 collections:
   links:
