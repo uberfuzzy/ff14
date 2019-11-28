@@ -54,3 +54,7 @@ $on-laptop:        800px;
 a[href*="//ffxiv.consolegameswiki.com"]:after { content: " (@ffxiv.consolegameswiki.com)"; font-size: 90%; color: black; }
 a[href*="//ffxiv.gamerescape.com/wiki/"]:after { content: " (@ffxiv.gamerescape.com)"; font-size: 90%; color: black; }
 a[href*=".finalfantasyxiv.com/lodestone/"]:after { content: " (@LODESTONE)"; font-size: 90%; color: black; }
+
+.tag-header {
+  font-variant: small-caps;
+}
