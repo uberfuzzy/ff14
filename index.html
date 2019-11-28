@@ -17,18 +17,16 @@ layout: default
 {% endfor -%}<br>
 <br>
 
-{%- for tag in site.tags -%}
-  {%- assign t = tag | first -%}
-  {%- assign posts = tag | last -%}
-
-<div class="card mb-2" id="{{ t }}">
+{%- for stag in stags -%}
+{%- assign tag_posts = site.tags[stag] -%}
+<div class="card mb-2" id="{{ stag }}">
   <div class="card-header bg-secondary text-white">
-    <a href="#top" class="badge badge-pill badge-dark float-right">top</a>
-    <h4 class="mb-0">{{ t | downcase }}</h4>
+    <a href="#top" class="badge badge-pill badge-dark float-right text-white">top</a>
+    <h4 class="mb-0">{{ stag | downcase }}</h4>
   </div>
   <div class="card-body">
     <ul class="mb-0">
-{% for post in posts %}
+{% for post in tag_posts %}
       <li><a href="{{ post.link }}">{{ post.title }}</a></li>
 {%- endfor -%}
     </ul>
