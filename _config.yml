@@ -15,3 +15,7 @@ exclude:
   - CNAME
   - .jekyll-metadata
   
+collections_dir: collections
+collections:
+  links:
+    output: false
